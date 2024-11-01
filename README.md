@@ -36,10 +36,10 @@ This project is a **Food Management System** designed to help users track and or
 ### Setup
 
 1. **Clone the Repository**
-   ``` bash
-   git clone https://github.com/yourusername/food-management-system.git
-   cd food-management-system
-   ```
+``` bash
+git clone https://github.com/yourusername/food-management-system.git
+cd food-management-system
+```
 
 2. **Install Dependencies**
 - Backend
