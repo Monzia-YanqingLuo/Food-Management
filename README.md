@@ -2,6 +2,8 @@
 
 This project is a **Food Management System** designed to help users keep track of food items and organize them by category. It allows users to perform CRUD operations, search items by name, filter by category, and view items with pagination for ease of browsing.
 
+![image](img.png)
+
 ## Features
 
 ### Backend
@@ -17,6 +19,7 @@ This project is a **Food Management System** designed to help users keep track o
 - **DatePicker Integration**: Select and filter food items based on expiration dates.
 - **Pagination Controls**: Easy navigation through items with Back, Next, and page number buttons.
 - **Category Filtering**: View food items based on specific categories.
+- **CRUD Operations:** Users can create new food items, view detailed information, update item details directly from the UI, and delete items with confirmation prompts for secure data management.
 
 ## Tech Stack
 

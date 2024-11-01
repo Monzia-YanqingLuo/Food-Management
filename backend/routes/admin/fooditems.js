@@ -5,7 +5,7 @@ const { FoodItem, Category} = require('../../models'); // Adjust the path as nee
 // GET /admin/fooditems - Get all food items with pagination
 router.get('/', async (req, res) => {
     const { page = 1, limit = 5 } = req.query;
-    const offset = (page - 1) * limit;
+    const offset = (page - 1) * imit;
 
     try {
         const foodItems = await FoodItem.findAndCountAll({
