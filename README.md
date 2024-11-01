@@ -1,6 +1,6 @@
 # Food Management System
 
-This project is a **Food Management System** designed to help users keep track of food items and organize them by category. It allows users to perform CRUD operations, search items by name, filter by category, and view items with pagination for ease of browsing.
+This project is a **Food Management System** designed to help users track and organize food items by category. It supports CRUD operations, allowing users to create, read, update, and delete items. Key features include item creation, search by name, filtering by category, and paginated browsing. Additionally, users can view all current food items by leaving the search field empty and clicking search. Items can be updated directly through the creation page, and deletion is available if needed.
 
 ![image](img.png)
 
