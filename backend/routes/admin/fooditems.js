@@ -76,20 +76,30 @@ router.post('/', async (req, res) => {
     }
 });
 
-// PUT /admin/fooditems/:id - Update an existing food item by ID
+// PUT /admin/fooditems/:id - Update an existing food item
 router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, quantity, expiration_date, category_id } = req.body;
+
     try {
-        const foodItem = await FoodItem.findByPk(req.params.id);
-        if (foodItem) {
-            await foodItem.update(req.body);
-            res.status(200).json(foodItem);
-        } else {
-            res.status(404).json({ message: 'Food item not found' });
+        const foodItem = await FoodItem.findByPk(id);
+        if (!foodItem) {
+            return res.status(404).json({ message: 'Food item not found' });
         }
+
+        await foodItem.update({
+            name,
+            quantity,
+            expiration_date,
+            category_id,
+        });
+
+        res.status(200).json({ message: 'Food item updated successfully', foodItem });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 });
+
 
 //PUT new food
 router.put('/', async (req, res) => {
@@ -113,18 +123,21 @@ router.put('/', async (req, res) => {
 
 // DELETE /admin/fooditems/:id - Delete a food item by ID
 router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
     try {
-        const foodItem = await FoodItem.findByPk(req.params.id);
-        if (foodItem) {
-            await foodItem.destroy();
-            res.status(204).end();
-        } else {
-            res.status(404).json({ message: 'Food item not found' });
+        const foodItem = await FoodItem.findByPk(id);
+        if (!foodItem) {
+            return res.status(404).json({ message: 'Food item not found' });
         }
+
+        await foodItem.destroy();
+        res.status(200).json({ message: 'Food item deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 module.exports = router;
 

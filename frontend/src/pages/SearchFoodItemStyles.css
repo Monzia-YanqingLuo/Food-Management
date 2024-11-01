@@ -42,14 +42,26 @@ button:hover {
 
 .pagination {
     display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .pagination .active {
-    font-weight: bold;
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
+    border-color: #007bff;
 }
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 

@@ -9,6 +9,20 @@ export const addOrUpdateFoodItem = async (foodItem: FoodItem): Promise<FoodItem>
     return response.data;
 };
 
+export const getFoodItemByName = async (name: string): Promise<FoodItem | null> => {
+    try {
+        const response = await axios.get<FoodItem>(`${BASE_URL}/fooditems/${name}`);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
+            return null;
+        } else {
+            console.error('Error fetching food item by name:', error);
+            throw error;
+        }
+    }
+};
+
 export const fetchFoodItems = async (name: string = '', page: number = 1) => {
     const endpoint = name
         ? `${BASE_URL}/fooditems/${name}?page=${page}`
@@ -19,6 +33,10 @@ export const fetchFoodItems = async (name: string = '', page: number = 1) => {
     });
     console.log('Response from API:', response.data);
     return response.data;
+};
+
+export const deleteFoodItemById = async (id: number): Promise<void> => {
+    await axios.delete(`${BASE_URL}/fooditems/${id}`);
 };
 
 
